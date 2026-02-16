@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali ŞENGÜL | Matematik Öğretmen Adayı</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Matematiksel Formüller için MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .math-bg {
+            background-image: radial-gradient(#3b82f6 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 math-bg">
+
+    <!-- Navigasyon -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600 tracking-tighter">AŞ.</a>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#about" class="hover:text-blue-600 transition">Hakkımda</a>
+                <a href="#philosophy" class="hover:text-blue-600 transition">Eğitim Vizyonu</a>
+                <a href="#contact" class="hover:text-blue-600 transition">İletişim</a>
+            </div>
+            <button class="md:hidden text-gray-600"><i class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Bölümü -->
+    <header class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide text-blue-600 uppercase bg-blue-50 rounded-full">
+                Geleceğin Eğitimcisi
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-gray-900">
+                Ali ŞENGÜL
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+                Matematiği formüllerden çıkarıp mantığa dönüştüren, yenilikçi bir <span class="text-blue-600 font-semibold">Matematik Öğretmen Adayı</span>.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#contact" class="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-200">İletişime Geç</a>
+                <a href="#about" class="px-8 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:bg-gray-50 transition">Hikayemi Oku</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hakkımda -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <div class="aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=1000" alt="Ali Şengül Portre" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-2xl hidden md:block shadow-xl">
+                    <p class="text-2xl font-bold">$$\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$$</p>
+                    <p class="text-xs opacity-80 mt-2 font-mono italic">Matematik bir sanattır.</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold mb-6">Merhaba, Ben Ali.</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    Sayıların dünyasına olan merakım beni matematik eğitimine yönlendirdi. Bir öğretmen adayı olarak amacım, öğrencilerin "Neden?" sorusuna yanıt bulabildikleri, soyut kavramların somutlaştığı bir öğrenme ortamı yaratmak.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-2">Eğitim</h4>
+                        <p class="text-sm text-gray-500">Matematik Öğretmenliği<br>Lisans Öğrencisi</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-2">Uzmanlık</h4>
+                        <p class="text-sm text-gray-500">Analitik Düşünme,<br>Pedagojik Yaklaşımlar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vizyon Bölümü -->
+    <section id="philosophy" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-12 italic text-blue-800">"Matematik, evrenin dilidir."</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Eleştirel Düşünce</h3>
+                    <p class="text-sm text-gray-500 text-center leading-relaxed">Ezbere dayalı değil, mantık yürüten bireyler yetiştirmek önceliğimdir.</p>
+                </div>
+                <div class="p-8 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Dijital Eğitim</h3>
+                    <p class="text-sm text-gray-500 text-center leading-relaxed">Geogebra ve benzeri araçlarla matematiği görselleştiriyorum.</p>
+                </div>
+                <div class="p-8 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Bireysel Gelişim</h3>
+                    <p class="text-sm text-gray-500 text-center leading-relaxed">Her öğrencinin öğrenme hızı farklıdır, yaklaşımlarımı buna göre şekillendiririm.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim Formu -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="bg-blue-600 rounded-3xl p-8 md:p-16 overflow-hidden relative shadow-2xl">
+                <!-- Arka Plan Deseni -->
+                <div class="absolute top-0 right-0 opacity-10 text-white text-9xl font-bold select-none pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+                    f(x)
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 relative z-10">
+                    <div class="text-white">
+                        <h2 class="text-4xl font-bold mb-6">Bana Ulaşın</h2>
+                        <p class="text-blue-100 mb-8 text-lg">
+                            Eğitim projeleri, özel ders talepleri veya sadece tanışmak için mesaj atabilirsiniz.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-blue-500/30 rounded-full flex items-center justify-center border border-white/20">
+                                    <i class="fa-solid fa-envelope text-white"></i>
+                                </div>
+                                <span>ali.sengul@example.com</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-blue-500/30 rounded-full flex items-center justify-center border border-white/20">
+                                    <i class="fa-brands fa-linkedin text-white"></i>
+                                </div>
+                                <span>linkedin.com/in/alisengul</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-xl">
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Adınız Soyadınız</label>
+                                <input type="text" id="userName" required class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Ali Veli">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">E-posta Adresiniz</label>
+                                <input type="email" id="userEmail" required class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="ali@örnek.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Mesajınız</label>
+                                <textarea id="userMessage" rows="4" required class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Nasıl yardımcı olabilirim?"></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn" class="w-full py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Gönder</span>
+                            </button>
+                            <div id="statusMsg" class="hidden text-center text-sm font-medium mt-4"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-gray-100 bg-white">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+            <p>© 2024 Ali ŞENGÜL. Tüm Hakları Saklıdır.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-blue-600 transition">Instagram</a>
+                <a href="#" class="hover:text-blue-600 transition">Twitter</a>
+                <a href="#" class="hover:text-blue-600 transition">Medium</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Supabase Konfigürasyonu
+        const SUPABASE_URL = 'https://eygvzptaynyysagvgwyh.supabase.co'; 
+        const SUPABASE_KEY = 'sb_publishable_JixS3C4jQ2Znrgcr3-IZPg_1MfpvdXW'; 
+        
+        // Supabase kütüphanesinin global objesiyle çakışmaması için client adını değiştirdik
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const form = document.getElementById('contactForm');
+        const statusMsg = document.getElementById('statusMsg');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const message = document.getElementById('userMessage').value;
+
+            // Gönderim sırasında buton durumunu güncelle
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin"></i> <span>Gönderiliyor...</span>';
+
+            try {
+                // Veritabanına ekleme işlemi
+                const { error } = await supabaseClient
+                    .from('messages')
+                    .insert([{ 
+                        full_name: name, 
+                        email_address: email, 
+                        message_content: message
+                    }]);
+
+                if (error) throw error;
+
+                // Başarılı mesajı
+                statusMsg.classList.remove('hidden', 'text-red-600');
+                statusMsg.classList.add('text-green-600');
+                statusMsg.textContent = 'Mesajınız başarıyla iletildi. En kısa sürede dönüş yapacağım.';
+                form.reset();
+
+            } catch (err) {
+                // Hata mesajı
+                statusMsg.classList.remove('hidden', 'text-green-600');
+                statusMsg.classList.add('text-red-600');
+                statusMsg.textContent = 'Mesaj gönderilemedi: ' + (err.message || 'Hata oluştu.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> <span>Gönder</span>';
+            }
+        });
+    </script>
+</body>
+</html>
