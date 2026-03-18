@@ -72,7 +72,6 @@
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <!-- Supabase logos.png kullanımı -->
                 <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/logos.png" alt="Logo" class="h-10 w-auto">
                 <span class="text-xl font-bold tracking-tight text-primary dark:text-white">ALİ ŞENGÜL</span>
             </div>
@@ -125,7 +124,6 @@
             
             <div class="order-1 md:order-2 flex justify-center relative">
                 <div class="absolute -z-10 w-72 h-72 bg-primary/20 blur-[100px] rounded-full floating"></div>
-                <!-- Supabase foto.png kullanımı -->
                 <div class="relative w-72 h-72 md:w-96 md:h-96">
                     <div class="absolute inset-0 border-2 border-primary rounded-[2rem] rotate-6"></div>
                     <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/foto.png" alt="Ali Şengül" class="w-full h-full object-cover rounded-[2rem] shadow-2xl relative z-10 transition-transform hover:rotate-2">
@@ -274,15 +272,31 @@
 
     <!-- Footer -->
     <footer class="py-12 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex items-center gap-3">
-                <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/logos.png" alt="Logo" class="h-8 w-auto grayscale opacity-50">
-                <p class="text-sm text-slate-400">© 2024 Ali ŞENGÜL. Matematik Evrenin Dilidir.</p>
-            </div>
-            <div class="flex gap-6">
-                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass hover:text-primary transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass hover:text-primary transition-colors"><i class="fa-brands fa-github"></i></a>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+                <!-- Sol Taraf: Marka ve Apple Teacher Imzası -->
+                <div class="space-y-8">
+                    <div class="flex items-center gap-3">
+                        <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/logos.png" alt="Logo" class="h-8 w-auto grayscale opacity-50">
+                        <p class="text-sm text-slate-400">© 2024 Ali ŞENGÜL. Matematik Evrenin Dilidir.</p>
+                    </div>
+
+                    <!-- Apple Teacher Signature (Kılavuza Göre: Diğer markalardan uzak, min 35px) -->
+                    <div class="pt-4 border-t border-slate-100 dark:border-slate-800 max-w-xs">
+                        <img src="https://r.resimlink.com/tXMPVx.png" alt="Apple Teacher" class="h-[40px] dark:hidden block">
+                        <img src="https://r.resimlink.com/xSsj0KcQH87.png" alt="Apple Teacher" class="h-[40px] hidden dark:block">
+                        <p class="text-[10px] text-slate-400 mt-4 leading-tight italic">
+                            Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sağ Taraf: Sosyal Medya -->
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass hover:text-primary transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full glass hover:text-primary transition-colors"><i class="fa-brands fa-github"></i></a>
+                </div>
             </div>
         </div>
     </footer>
@@ -306,7 +320,6 @@
         themeToggle.addEventListener('click', toggleTheme);
         mobileThemeToggle.addEventListener('click', toggleTheme);
 
-        // Başlangıçta tema kontrolü
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
