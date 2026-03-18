@@ -73,9 +73,9 @@
 
         .nav-link-active {
             color: #3b82f6 !important;
+            border-bottom: 2px solid #3b82f6;
         }
 
-        /* Mobile Menu Animation */
         #mobile-menu {
             transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
             transform: translateY(-20px);
@@ -94,17 +94,16 @@
     <!-- Navigasyon -->
     <nav class="fixed w-full z-[100] glass-nav" id="navbar">
         <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center transition-all duration-300" id="navContainer">
-            <!-- Logo -->
             <div class="flex items-center gap-3 cursor-pointer select-none" onclick="showPage('home')">
                 <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/logos.png" alt="Logo" class="h-9 w-auto">
                 <span class="text-lg font-black tracking-tighter">ALİ ŞENGÜL</span>
             </div>
             
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-8 font-bold text-xs uppercase tracking-widest">
-                <button onclick="showPage('home')" class="nav-item text-slate-600 dark:text-slate-400 hover:text-primary transition-all">Ana Sayfa</button>
-                <button onclick="showPage('projects')" class="nav-item text-slate-600 dark:text-slate-400 hover:text-primary transition-all">Projelerim</button>
-                <button onclick="showPage('contact')" class="nav-item text-slate-600 dark:text-slate-400 hover:text-primary transition-all">İletişim</button>
+            <div class="hidden md:flex items-center space-x-6 font-bold text-[11px] uppercase tracking-widest">
+                <button onclick="showPage('home')" class="nav-item text-slate-600 dark:text-slate-400 hover:text-primary transition-all pb-1">Ana Sayfa</button>
+                <button onclick="showPage('projects')" class="nav-item text-slate-600 dark:text-slate-400 hover:text-primary transition-all pb-1">Projelerim</button>
+                <button onclick="showPage('certificates')" class="nav-item text-slate-600 dark:text-slate-400 hover:text-primary transition-all pb-1">Sertifikalarım</button>
+                <button onclick="showPage('contact')" class="nav-item text-slate-600 dark:text-slate-400 hover:text-primary transition-all pb-1">İletişim</button>
                 
                 <button id="themeToggle" class="p-2.5 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-yellow-400 hover:scale-110 transition-all">
                     <i class="fa-solid fa-moon dark:hidden"></i>
@@ -112,7 +111,6 @@
                 </button>
             </div>
 
-            <!-- Mobile Controls -->
             <div class="flex md:hidden items-center gap-3">
                 <button id="mobileThemeToggle" class="p-2 text-slate-700 dark:text-yellow-400">
                     <i class="fa-solid fa-moon dark:hidden"></i>
@@ -124,11 +122,11 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white dark:bg-darkBg border-b border-slate-100 dark:border-slate-800 shadow-xl p-6 md:hidden">
             <div class="flex flex-col space-y-5 font-bold text-sm uppercase tracking-widest">
                 <button onclick="showPage('home')" class="mobile-nav-item text-left py-2 border-b border-slate-50 dark:border-slate-800/50">Ana Sayfa</button>
                 <button onclick="showPage('projects')" class="mobile-nav-item text-left py-2 border-b border-slate-50 dark:border-slate-800/50">Projelerim</button>
+                <button onclick="showPage('certificates')" class="mobile-nav-item text-left py-2 border-b border-slate-50 dark:border-slate-800/50">Sertifikalarım</button>
                 <button onclick="showPage('contact')" class="mobile-nav-item text-left py-2 border-b border-slate-50 dark:border-slate-800/50">İletişim</button>
             </div>
         </div>
@@ -139,7 +137,6 @@
         <!-- Hero -->
         <section class="min-h-screen flex flex-col justify-center pt-24 pb-12 px-5">
             <div class="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-                <!-- Text -->
                 <div class="space-y-6 md:space-y-10 order-2 md:order-1 text-center md:text-left">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-widest border border-blue-500/20">
                         Apple Onaylı Matematik Eğitimcisi
@@ -148,39 +145,37 @@
                         Geleceği <br class="hidden md:block"> <span class="text-primary">Matematikleştir.</span>
                     </h1>
                     <p class="text-base md:text-xl text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium mx-auto md:mx-0">
-                        Isparta'dan tüm Türkiye'ye; dijital araçlarla zenginleştirilmiş, korkulmayan bir matematik eğitimi vizyonu.
+                        Teorik bilgiyi pratikte uygulayan, yenilikçi düşünme yeteneğiyle eğitim ortamlarına değer katan bir vizyon.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <button onclick="showPage('projects')" class="w-full sm:w-fit px-8 py-4 bg-primary text-white font-bold rounded-2xl shadow-lg shadow-primary/30 active:scale-95 transition-all">Projelerime Bak</button>
                         <button onclick="showPage('contact')" class="w-full sm:w-fit px-8 py-4 bg-white dark:bg-slate-800 font-bold rounded-2xl border border-slate-200 dark:border-slate-700 active:scale-95 transition-all">İletişime Geç</button>
                     </div>
                 </div>
-                <!-- Image -->
                 <div class="order-1 md:order-2 w-full max-w-[320px] md:max-w-none mx-auto relative group">
                     <div class="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
-                    <!-- Updated Photo -->
                     <img src="https://r.resimlink.com/6U1g2oelRh.png" alt="Ali Şengül Profile" class="relative w-full aspect-square object-cover rounded-[2.5rem] md:rounded-5xl shadow-2xl transition-all duration-700 md:group-hover:scale-[1.02]">
                 </div>
             </div>
         </section>
 
-        <!-- About Stats -->
+        <!-- Stats Section -->
         <section id="about" class="py-20 bg-white dark:bg-slate-900/50 px-5">
             <div class="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-3 gap-12 items-center">
                 <div class="md:col-span-2 space-y-6 text-center md:text-left">
-                    <h2 class="text-3xl md:text-4xl font-black tracking-tight leading-tight">Eğitimde 2+ Yıllık Dijital Deneyim.</h2>
+                    <h2 class="text-3xl md:text-4xl font-black tracking-tight leading-tight">Süleyman Demirel Üniversitesi Öğrencisi.</h2>
                     <p class="text-base md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                        Isparta Merkez'de sürdürdüğüm eğitim yolculuğumda, Apple Teacher yetkinliklerimi kullanarak matematiği soyut bir zorunluluktan somut bir maceraya dönüştürüyorum. 
+                        Amacım; edindiğim teorik bilgileri dijital içerik tasarımı ve topluluk oluşturma becerilerimle birleştirerek profesyonel eğitim çözümleri sunmak.
                     </p>
                 </div>
-                <div class="grid grid-cols-2 gap-4 w-full">
-                    <div class="text-center p-6 bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50">
-                        <h4 class="text-3xl md:text-4xl font-black text-primary mb-1">2+</h4>
-                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-tight">Yıllık Tecrübe</p>
+                <div class="grid grid-cols-2 gap-4 w-full text-center">
+                    <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50">
+                        <h4 class="text-3xl font-black text-primary mb-1">2.5K</h4>
+                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-tight">Instagram Kitlesi</p>
                     </div>
-                    <div class="text-center p-6 bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50">
-                        <h4 class="text-3xl md:text-4xl font-black text-primary mb-1">10K+</h4>
-                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-tight">Eğitim Takipçisi</p>
+                    <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50">
+                        <h4 class="text-3xl font-black text-primary mb-1">10+</h4>
+                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-tight">Yayınevi İşbirliği</p>
                     </div>
                 </div>
             </div>
@@ -191,25 +186,20 @@
     <main id="projects-page" class="hidden page-transition pt-28 px-5 pb-16">
         <div class="max-w-7xl mx-auto">
             <div class="mb-12 md:mb-20 text-center space-y-4">
-                <h1 class="text-4xl md:text-7xl font-black">Dijital Çalışmalarım.</h1>
-                <p class="text-base md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">Öğrencilerin ve öğretmenlerin hayatına dokunan modern matematik araçları.</p>
+                <h1 class="text-4xl md:text-7xl font-black">Deneyim & Proje.</h1>
+                <p class="text-base md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">Ulucak Akademi'den TEGV gönüllülüğüne, eğitimdeki dijital girişimlerim.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
                 <!-- MATOTA ONLINE -->
                 <div class="group bg-white dark:bg-slate-800 rounded-4xl md:rounded-5xl overflow-hidden border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl flex flex-col">
-                    <div class="h-48 md:h-72 bg-blue-600 overflow-hidden relative flex items-center justify-center p-8">
-                        <div class="absolute inset-0 opacity-10 math-grid"></div>
-                        <h2 class="text-3xl md:text-4xl font-black text-white z-10">MATOTA</h2>
+                    <div class="h-48 md:h-72 bg-blue-600 overflow-hidden relative flex items-center justify-center p-8 text-center">
+                        <h2 class="text-3xl md:text-4xl font-black text-white z-10">MATOTA ONLINE</h2>
                     </div>
                     <div class="p-8 md:p-10 space-y-4 flex-grow flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center text-primary font-bold text-[10px] uppercase tracking-widest">
-                                <span>Yazılım & Eğitim</span>
-                                <span class="bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded italic">Öne Çıkan</span>
-                            </div>
-                            <h3 class="text-2xl md:text-3xl font-bold">MATOTA Online</h3>
-                            <p class="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                        <div class="space-y-4 text-sm md:text-base">
+                            <div class="text-primary font-bold text-[10px] uppercase tracking-widest italic">Öğrenci-Öğretmen Platformu</div>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
                                 Öğrenci-öğretmen kullanımını esas alan, interaktif ders içerikleriyle donatılmış kapsamlı bir online eğitim programıdır.
                             </p>
                         </div>
@@ -222,14 +212,13 @@
                 <!-- INSTAGRAM -->
                 <div class="group bg-white dark:bg-slate-800 rounded-4xl md:rounded-5xl overflow-hidden border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl flex flex-col">
                     <div class="h-48 md:h-72 bg-gradient-to-tr from-purple-600 via-pink-600 to-yellow-500 overflow-hidden relative flex items-center justify-center p-8">
-                         <i class="fa-brands fa-instagram text-6xl md:text-8xl text-white opacity-40"></i>
+                         <h2 class="text-3xl md:text-4xl font-black text-white z-10">@ilkogretimogretmeni</h2>
                     </div>
                     <div class="p-8 md:p-10 space-y-4 flex-grow flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="text-pink-600 font-bold text-[10px] uppercase tracking-widest">Sosyal Medya & İçerik</div>
-                            <h3 class="text-2xl md:text-3xl font-bold">@ilkogretimogretmeni</h3>
-                            <p class="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
-                                Kısa matematik taktikleri, motivasyon içerikleri ve öğrencilere yol gösteren rehberlik videolarıyla dolu dijital eğitim platformu.
+                        <div class="space-y-4 text-sm md:text-base">
+                            <div class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">İçerik Üreticiliği</div>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                                Mozaik, Hız, Ple-Birey gibi yayınevleriyle işbirliği yaparak üretilen taktikler ve motivasyon videoları.
                             </p>
                         </div>
                         <a href="https://www.instagram.com/ilkogretimogretmeni" target="_blank" class="mt-6 w-full md:w-fit px-8 py-3 bg-pink-600 text-white font-bold rounded-2xl flex items-center justify-center gap-3 active:scale-95 transition-transform">
@@ -241,13 +230,86 @@
         </div>
     </main>
 
+    <!-- SERTİFİKALAR GÖRÜNÜMÜ -->
+    <main id="certificates-page" class="hidden page-transition pt-28 px-5 pb-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12 md:mb-20 text-center space-y-4">
+                <h1 class="text-4xl md:text-7xl font-black">Sertifikalarım.</h1>
+                <p class="text-base md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">Sürekli gelişim ve uzmanlık yolculuğumdaki resmi duraklarım.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Sertifika Kartları -->
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-certificate text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">İlkokul Çocuklarının Matematik Becerilerini Geliştirme</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Hayat Boyu Öğrenme | Kasım 2024</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-laptop-code text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Ders Hazırlama Ve İşlemede Teknoloji Kullanımı</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Hayat Boyu Öğrenme | Kasım 2024</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-users-viewfinder text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Yaratıcı Yenilikçi Öğretmenler Semineri</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Ege Çağdaş Eğitim Vakfı (EÇEV)</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-palette text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Canva Dijital Öğretmenler Zirvesi</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Canva Sertifikası</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-heart-circle-check text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">TEGV Temel Gönüllü Eğitimi</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Türkiye Eğitim Gönüllüleri Vakfı</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-leaf text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Çevre Eğiticisinin Eğitimi</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Ege Üniversitesi SEM</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-child-reaching text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Çocukla İletişim Sertifikası</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Hayat Boyu Öğrenme | Kasım 2024</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-chart-line text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Veri Analizi Ve Görselleştirme Eğitimi</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Uzmanlık Sertifikası</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-rocket text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Genç Girişimciler Fikir Maratonu</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Habitat Derneği | Temmuz 2023</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-microchip text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Dünden Bugüne Yapay Zeka Semineri</h3>
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Seminer Sertifikası</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
     <!-- İLETİŞİM GÖRÜNÜMÜ -->
     <main id="contact-page" class="hidden page-transition pt-28 px-5 pb-16">
         <div class="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             <div class="space-y-8 md:space-y-10 text-center md:text-left">
                 <h1 class="text-5xl md:text-7xl font-black leading-tight">Bana <br><span class="text-primary">Ulaşın.</span></h1>
                 <p class="text-base md:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-md mx-auto md:mx-0">
-                    İş birlikleri, özel ders talepleri veya projeleriniz hakkında görüşmek için Isparta Merkez ofisimde veya dijital kanallar üzerinden iletişime geçebiliriz.
+                    Isparta Merkez'de eğitim ve teknoloji üzerine konuşmak için mesajınızı bekliyorum.
                 </p>
                 <div class="space-y-5">
                     <div class="flex items-center gap-4 justify-center md:justify-start">
@@ -294,7 +356,7 @@
                         <span class="text-xl font-black tracking-tighter uppercase">ALİ ŞENGÜL</span>
                     </div>
                     <p class="text-sm text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed font-medium mx-auto md:mx-0">
-                        Matematiği teknoloji ile evrenin diline dönüştüren bir öğretmen adayı. Gelecek, doğru soruları soranların olacak.
+                        Matematiği teknoloji ile evrenin diline dönüştüren bir öğretmen adayı. Sürekli gelişim ve dijital dönüşüm odağım.
                     </p>
                     <div class="flex gap-4 justify-center md:justify-start">
                         <a href="https://www.linkedin.com/in/alisengulcom" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-primary hover:text-white transition-all"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
@@ -303,11 +365,11 @@
                 </div>
 
                 <div class="text-center md:text-left">
-                    <h4 class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-[0.2em] text-[10px]">Site Haritası</h4>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-[0.2em] text-[10px]">Navigasyon</h4>
                     <ul class="space-y-3 font-bold text-slate-500 dark:text-slate-400 text-xs">
                         <li><button onclick="showPage('home')" class="hover:text-primary transition-colors">Ana Sayfa</button></li>
                         <li><button onclick="showPage('projects')" class="hover:text-primary transition-colors">Projelerim</button></li>
-                        <li><button onclick="showPage('contact')" class="hover:text-primary transition-colors">İletişim Kanalı</button></li>
+                        <li><button onclick="showPage('certificates')" class="hover:text-primary transition-colors">Sertifikalarım</button></li>
                     </ul>
                 </div>
 
@@ -326,7 +388,7 @@
             <div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
                 <p class="text-[11px] font-bold text-slate-400">© 2026 Ali ŞENGÜL. Tüm Hakları Saklıdır.</p>
                 <div class="flex gap-4 text-[9px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-widest">
-                    <span>Portfolio V4.1</span>
+                    <span>Portfolio V5.0</span>
                     <span>•</span>
                     <span>Isparta Merkez</span>
                 </div>
@@ -345,6 +407,7 @@
             const pages = {
                 'home': document.getElementById('home-page'),
                 'projects': document.getElementById('projects-page'),
+                'certificates': document.getElementById('certificates-page'),
                 'contact': document.getElementById('contact-page')
             };
             
@@ -352,24 +415,21 @@
             const mobileNavItem = document.querySelectorAll('.mobile-nav-item');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            // Menüyü kapat (Mobilde)
             if (mobileMenu) mobileMenu.classList.remove('open');
 
-            // Tüm sayfaları gizle
             Object.values(pages).forEach(p => p.classList.add('hidden'));
             
-            // Seçilen sayfayı göster
             if (pages[pageId]) {
                 pages[pageId].classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
-            // Aktif link stilini güncelle
             const updateActiveLink = (items) => {
                 items.forEach(item => {
                     const text = item.textContent.toLowerCase();
                     if ((pageId === 'home' && text.includes('ana')) || 
                         (pageId === 'projects' && text.includes('proje')) || 
+                        (pageId === 'certificates' && text.includes('sertifika')) || 
                         (pageId === 'contact' && text.includes('iletişim'))) {
                         item.classList.add('nav-link-active');
                     } else {
@@ -382,7 +442,6 @@
             updateActiveLink(mobileNavItem);
         }
 
-        // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (menuBtn && mobileMenu) {
@@ -391,7 +450,6 @@
             });
         }
 
-        // Tema Yönetimi
         const themeToggle = document.getElementById('themeToggle');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         
@@ -406,7 +464,6 @@
             document.documentElement.classList.add('dark');
         }
 
-        // Navbar Scroll Efekti
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             const container = document.getElementById('navContainer');
@@ -421,7 +478,6 @@
             }
         });
 
-        // Form İşlemleri
         const form = document.getElementById('contactForm');
         const statusMsg = document.getElementById('statusMsg');
         const submitBtn = document.getElementById('submitBtn');
@@ -459,14 +515,12 @@
             }
         });
 
-        // Sayfa dışına tıklandığında menüyü kapat
         window.addEventListener('click', (e) => {
             if (mobileMenu && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
                 mobileMenu.classList.remove('open');
             }
         });
 
-        // İlk sayfa yüklemesi
         window.onload = () => showPage('home');
     </script>
 </body>
