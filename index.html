@@ -18,8 +18,12 @@
                 extend: {
                     colors: {
                         primary: '#3b82f6',
-                        darkBg: '#0f172a',
-                        darkCard: '#1e293b'
+                        darkBg: '#020617',
+                        darkCard: '#0f172a'
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3rem',
                     }
                 }
             }
@@ -27,339 +31,279 @@
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            transition: background-color 0.5s ease, color 0.5s ease;
+            transition: background-color 0.5s ease;
         }
 
-        .math-pattern {
-            background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-        
-        .dark .math-pattern {
-            background-image: radial-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+        .math-grid {
+            background-image: linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
         .glass-nav {
             background: rgba(255, 255, 255, 0.01);
             backdrop-filter: blur(0px);
-            -webkit-backdrop-filter: blur(0px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
         }
 
         .glass-nav.scrolled {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
         }
 
         .dark .glass-nav.scrolled {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(2, 6, 23, 0.8);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .page-transition {
+            animation: fadeIn 0.6s ease-out forwards;
         }
 
-        .dark .glass-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
+        .nav-link-active {
+            color: #3b82f6 !important;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 dark:bg-darkBg dark:text-slate-100 math-pattern">
+<body class="bg-slate-50 text-slate-900 dark:bg-darkBg dark:text-slate-100 math-grid">
 
     <!-- Navigasyon -->
     <nav class="fixed w-full z-50 glass-nav" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center transition-all duration-300" id="navContainer">
-            <div class="flex items-center gap-3 group cursor-pointer">
-                <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/logos.png" alt="Logo" class="h-10 w-auto transition-transform group-hover:scale-110">
-                <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">ALİ ŞENGÜL</span>
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
+                <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/logos.png" alt="Logo" class="h-10 w-auto">
+                <span class="text-xl font-extrabold tracking-tighter">ALİ ŞENGÜL</span>
             </div>
             
-            <div class="hidden md:flex items-center space-x-10 font-semibold">
-                <a href="#about" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors">Hakkımda</a>
-                <a href="#philosophy" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors">Vizyon</a>
-                <a href="#contact" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors">İletişim</a>
+            <div class="hidden md:flex items-center space-x-8 font-bold">
+                <button onclick="showPage('home')" class="nav-item text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">Ana Sayfa</button>
+                <button onclick="showPage('projects')" class="nav-item text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">Projelerim</button>
+                <a href="#contact" class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">İletişim</a>
                 
-                <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
-
-                <!-- Tema Değiştirici -->
-                <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-yellow-400 hover:ring-2 ring-primary/20 transition-all">
+                <button id="themeToggle" class="p-2.5 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-yellow-400 hover:scale-110 transition-all">
                     <i class="fa-solid fa-moon dark:hidden"></i>
                     <i class="fa-solid fa-sun hidden dark:block"></i>
                 </button>
             </div>
 
-            <div class="md:hidden flex items-center gap-4">
-                <button id="mobileThemeToggle" class="p-2 text-slate-700 dark:text-yellow-400">
-                    <i class="fa-solid fa-moon dark:hidden"></i>
-                    <i class="fa-solid fa-sun hidden dark:block"></i>
-                </button>
-                <button class="text-slate-700 dark:text-white"><i class="fa-solid fa-bars text-xl"></i></button>
-            </div>
+            <button class="md:hidden text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
     </nav>
 
-    <!-- Hero Bölümü -->
-    <section class="min-h-screen flex items-center pt-28 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="space-y-10 order-2 md:order-1">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-blue-50/50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-sm font-bold border border-blue-100/50 dark:border-blue-800/30 backdrop-blur-sm">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
-                    </span>
-                    Matematik Öğretmen Adayı & Apple Teacher
-                </div>
-                <h1 class="text-6xl md:text-8xl font-extrabold leading-[1.1] tracking-tight">
-                    Zekanın <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Saf Şiiri.</span>
-                </h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
-                    Matematiği formüllerin soğukluğundan kurtarıp, mantığın ve keşfin heyecanına dönüştürmek için yola çıktım.
-                </p>
-                <div class="flex flex-wrap gap-5">
-                    <a href="#contact" class="px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all active:scale-95">Tanışalım</a>
-                    <a href="#about" class="px-10 py-5 glass-card dark:bg-slate-800/40 font-bold rounded-2xl hover:bg-slate-100 transition-all border border-slate-200 dark:border-slate-700">Hikayem</a>
-                </div>
-            </div>
-            
-            <div class="order-1 md:order-2 flex justify-center relative">
-                <div class="absolute -z-10 w-80 h-80 bg-primary/20 blur-[120px] rounded-full floating"></div>
-                <div class="relative w-80 h-80 md:w-[450px] md:h-[450px]">
-                    <div class="absolute inset-0 border-4 border-primary/20 rounded-[3rem] rotate-6 scale-95"></div>
-                    <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/foto.png" alt="Ali Şengül" class="w-full h-full object-cover rounded-[3rem] shadow-2xl relative z-10 transition-transform duration-500 hover:scale-[1.02]">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hakkımda -->
-    <section id="about" class="py-32 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="glass-card p-12 md:p-20 rounded-[4rem] relative z-10">
-                <div class="grid md:grid-cols-2 gap-20">
-                    <div>
-                        <div class="w-16 h-1 bg-primary mb-8 rounded-full"></div>
-                        <h2 class="text-4xl font-extrabold mb-10">Ali Şengül Kimdir?</h2>
-                        <div class="space-y-8 text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-                            <p>
-                                Eğitim, sadece bilgi aktarımı değil; bir kıvılcım çakma sanatıdır. Matematik öğretmenliği yolculuğumda temel hedefim, öğrencilerin sayılarla olan ilişkisini korkudan meraka dönüştürmektir.
-                            </p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="p-6 bg-slate-50 dark:bg-slate-800/30 rounded-3xl border border-slate-100 dark:border-slate-700">
-                                    <i class="fa-solid fa-graduation-cap text-primary mb-4 text-2xl"></i>
-                                    <h4 class="font-bold text-slate-900 dark:text-white mb-1">Lisans</h4>
-                                    <p class="text-sm">Matematik Öğretmenliği</p>
-                                </div>
-                                <div class="p-6 bg-slate-50 dark:bg-slate-800/30 rounded-3xl border border-slate-100 dark:border-slate-700">
-                                    <i class="fa-solid fa-apple-whole text-primary mb-4 text-2xl"></i>
-                                    <h4 class="font-bold text-slate-900 dark:text-white mb-1">Sertifika</h4>
-                                    <p class="text-sm">Apple Onaylı Öğretmen</p>
-                                </div>
-                            </div>
-                        </div>
+    <!-- ANA SAYFA GÖRÜNÜMÜ -->
+    <main id="home-page" class="page-transition">
+        <!-- Hero -->
+        <section class="min-h-screen flex items-center pt-20 px-6">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest border border-blue-500/20">
+                        Apple Onaylı Matematik Eğitimcisi
                     </div>
-                    <div class="flex flex-col justify-center text-center space-y-12">
-                        <div class="relative inline-block">
-                            <i class="fa-solid fa-quote-left absolute -top-8 -left-8 text-6xl text-primary/10"></i>
-                            <p class="text-3xl font-serif italic text-slate-800 dark:text-slate-200 leading-snug">
-                                "Matematik, evrenin bize fısıldadığı en büyük sırdır."
-                            </p>
-                        </div>
-                        <div class="p-10 glass-card rounded-3xl transform rotate-2">
-                             <p class="text-3xl font-bold font-mono text-primary/40 tracking-widest">
-                                 $$\lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = e$$
-                             </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vizyon -->
-    <section id="philosophy" class="py-32 bg-slate-100/30 dark:bg-slate-900/30">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-4xl font-extrabold mb-6">Eğitimde Yeni Nesil Yaklaşımlar</h2>
-                <p class="text-slate-500 dark:text-slate-400 text-lg">Teknoloji ve pedagojiyi birleştirerek, matematiği herkes için erişilebilir ve ilgi çekici kılıyorum.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="group p-10 glass-card hover:bg-white dark:hover:bg-slate-800 hover:-translate-y-3 transition-all duration-500 rounded-[3rem] shadow-sm">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-primary/10 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:rotate-12">
-                        <i class="fa-solid fa-microchip text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Dijital Dönüşüm</h3>
-                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">iPad ve modern eğitim araçlarıyla dersleri interaktif bir laboratuvara dönüştürüyorum.</p>
-                </div>
-                
-                <div class="group p-10 glass-card hover:bg-white dark:hover:bg-slate-800 hover:-translate-y-3 transition-all duration-500 rounded-[3rem] shadow-sm">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-primary/10 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:rotate-12">
-                        <i class="fa-solid fa-object-group text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Görsel Zeka</h3>
-                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Geometrik kavramları 3D modelleme ve animasyonlarla somutlaştırarak kalıcı öğrenme sağlıyorum.</p>
-                </div>
-
-                <div class="group p-10 glass-card hover:bg-white dark:hover:bg-slate-800 hover:-translate-y-3 transition-all duration-500 rounded-[3rem] shadow-sm">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-primary/10 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:rotate-12">
-                        <i class="fa-solid fa-heart-pulse text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Duygusal Bağ</h3>
-                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Matematik kaygısını yenmek için öğrenci odaklı ve motive edici bir iklim kuruyorum.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- İletişim -->
-    <section id="contact" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-20 items-center">
-                <div class="space-y-12">
-                    <h2 class="text-6xl font-extrabold leading-tight">Geleceği <br><span class="text-primary underline decoration-primary/20 underline-offset-8">Birlikte</span> Kuralım.</h2>
-                    <p class="text-slate-600 dark:text-slate-400 text-xl leading-relaxed">
-                        Bir sorunuz mu var? Ya da sadece eğitim üzerine konuşmak mı istiyorsunuz? Mesajınızı bekliyorum.
+                    <h1 class="text-6xl md:text-8xl font-black leading-none tracking-tighter">
+                        Eğitimi <br> <span class="text-primary">Keşfet.</span>
+                    </h1>
+                    <p class="text-xl text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
+                        Matematiği teknoloji ile harmanlayarak geleceğin sınıflarını inşa ediyoruz. Soyut olanı somutlaştırmak için buradayım.
                     </p>
-                    <div class="space-y-8">
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-14 h-14 bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center rounded-2xl group-hover:bg-primary group-hover:text-white transition-all">
-                                <i class="fa-solid fa-envelope-open-text text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-400 uppercase font-bold tracking-[0.2em] mb-1">Bana Yazın</p>
-                                <p class="font-bold text-lg">ilkogretimogretmeni@gmail.com</p>
-                            </div>
+                    <div class="flex gap-4">
+                        <button onclick="showPage('projects')" class="px-8 py-4 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/30 hover:-translate-y-1 transition-all">Projelerime Göz At</button>
+                        <a href="#contact" class="px-8 py-4 bg-white dark:bg-slate-800 font-bold rounded-2xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all">Bana Ulaş</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                    <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/foto.png" alt="Ali Şengül" class="relative w-full aspect-square object-cover rounded-5xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
+                </div>
+            </div>
+        </section>
+
+        <!-- About/Bio -->
+        <section id="about" class="py-32 bg-white dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16">
+                <div class="md:col-span-2 space-y-8">
+                    <h2 class="text-4xl font-black tracking-tight">Matematik Bir Dil, Ben İse Bir Tercümanım.</h2>
+                    <p class="text-xl text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Bir öğretmen adayı olarak en büyük tutkum, karmaşık teorileri günlük hayatın basitliğine indirgemek. Apple Teacher unvanım ile dijital araçları matematik eğitimine entegre ederek öğrenme sürecini bir maceraya dönüştürüyorum.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 pt-8">
+                        <div>
+                            <h4 class="text-3xl font-black text-primary mb-2">3+</h4>
+                            <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Yıllık Tecrübe</p>
                         </div>
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-14 h-14 bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center rounded-2xl group-hover:bg-primary group-hover:text-white transition-all">
-                                <i class="fa-brands fa-linkedin-in text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-400 uppercase font-bold tracking-[0.2em] mb-1">Bağlantı Kurun</p>
-                                <p class="font-bold text-lg">linkedin.com/in/alisengulcom</p>
-                            </div>
+                        <div>
+                            <h4 class="text-3xl font-black text-primary mb-2">15+</h4>
+                            <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Dijital Proje</p>
                         </div>
                     </div>
                 </div>
+                <div class="bg-primary/5 p-10 rounded-4xl border border-primary/10 flex flex-col justify-center">
+                    <i class="fa-solid fa-quote-right text-4xl text-primary mb-6 opacity-20"></i>
+                    <p class="text-2xl font-serif italic text-slate-700 dark:text-slate-300">"Matematiksel düşünme, sadece doğru cevabı bulmak değil, doğru soruyu sormaktır."</p>
+                </div>
+            </div>
+        </section>
 
-                <div class="bg-white dark:bg-slate-800 p-10 md:p-12 rounded-[3.5rem] shadow-2xl border border-slate-100 dark:border-slate-700/50">
-                    <form id="contactForm" class="space-y-8">
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold ml-1 text-slate-500 uppercase tracking-wider">İsim Soyisim</label>
-                                <input type="text" id="userName" required class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-2xl focus:ring-4 ring-primary/10 focus:border-primary outline-none transition" placeholder="Ali Veli">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold ml-1 text-slate-500 uppercase tracking-wider">E-posta</label>
-                                <input type="email" id="userEmail" required class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-2xl focus:ring-4 ring-primary/10 focus:border-primary outline-none transition" placeholder="ali@mail.com">
-                            </div>
+        <!-- Vizyon -->
+        <section id="philosophy" class="py-32 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-10 bg-white dark:bg-slate-800 rounded-4xl shadow-sm hover:shadow-xl transition-all duration-500">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-primary mb-6">
+                            <i class="fa-solid fa-brain text-2xl"></i>
                         </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold ml-1 text-slate-500 uppercase tracking-wider">Mesajınız</label>
-                            <textarea id="userMessage" rows="5" required class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-2xl focus:ring-4 ring-primary/10 focus:border-primary outline-none transition" placeholder="Buraya yazabilirsiniz..."></textarea>
+                        <h3 class="text-2xl font-bold mb-4">Analitik Yaklaşım</h3>
+                        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Ezber bozan, mantık yürüten ve neden sonuç ilişkisi kuran bir nesil için çalışıyorum.</p>
+                    </div>
+                    <div class="p-10 bg-white dark:bg-slate-800 rounded-4xl shadow-sm hover:shadow-xl transition-all duration-500">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-primary mb-6">
+                            <i class="fa-solid fa-tablet-screen-button text-2xl"></i>
                         </div>
-                        <button type="submit" id="submitBtn" class="w-full py-5 bg-primary text-white font-extrabold rounded-2xl shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all flex items-center justify-center gap-3">
-                            <span>Gönder</span>
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                        <div id="statusMsg" class="hidden text-center font-bold p-5 rounded-2xl"></div>
-                    </form>
+                        <h3 class="text-2xl font-bold mb-4">Dijital Pedagoji</h3>
+                        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">iPad ve modern eğitim uygulamalarıyla matematiği interaktif hale getiriyorum.</p>
+                    </div>
+                    <div class="p-10 bg-white dark:bg-slate-800 rounded-4xl shadow-sm hover:shadow-xl transition-all duration-500">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-primary mb-6">
+                            <i class="fa-solid fa-shapes text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Görselleştirme</h3>
+                        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Karmaşık geometrik ve cebirsel yapıları 3D modellerle somutlaştırıyorum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- İletişim -->
+        <section id="contact" class="py-32 px-6">
+            <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 rounded-[3rem] p-10 md:p-20 shadow-2xl border border-slate-100 dark:border-slate-700/50">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-5xl font-black">Bana Ulaşın.</h2>
+                    <p class="text-slate-500 dark:text-slate-400 font-medium italic">Sayılarla aramızdaki bağı güçlendirmek için bir mesaj uzağınızdayım.</p>
+                </div>
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <input type="text" id="userName" required class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border-none rounded-2xl focus:ring-2 ring-primary outline-none transition" placeholder="Adınız Soyadınız">
+                        <input type="email" id="userEmail" required class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border-none rounded-2xl focus:ring-2 ring-primary outline-none transition" placeholder="E-posta Adresiniz">
+                    </div>
+                    <textarea id="userMessage" rows="5" required class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border-none rounded-2xl focus:ring-2 ring-primary outline-none transition" placeholder="Mesajınız..."></textarea>
+                    <button type="submit" id="submitBtn" class="w-full py-5 bg-primary text-white font-bold rounded-2xl shadow-lg hover:shadow-primary/30 transition-all flex items-center justify-center gap-3">
+                        Gönder <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    <div id="statusMsg" class="hidden text-center font-bold p-4 rounded-xl"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- PROJELER GÖRÜNÜMÜ -->
+    <main id="projects-page" class="hidden page-transition pt-32 px-6 pb-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20 space-y-4">
+                <h1 class="text-5xl md:text-7xl font-black">Projelerim.</h1>
+                <p class="text-xl text-slate-500 max-w-2xl font-medium leading-relaxed">Matematik eğitimini dijital çağın imkanlarıyla yeniden yorumladığım seçkin projelerim.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Proje 1 -->
+                <div class="group bg-white dark:bg-slate-800 rounded-4xl overflow-hidden border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl">
+                    <div class="h-64 bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-6xl text-white font-bold italic">f(x)</div>
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=800" alt="Proje" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="text-primary font-bold text-xs uppercase tracking-widest">Yazılım & Eğitim</div>
+                        <h3 class="text-2xl font-bold">Geo-Math İnteraktif</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Ortaöğretim öğrencilerinin geometri korkusunu yenmeleri için geliştirdiğim görsel öğrenme platformu.</p>
+                        <button class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-xs tracking-widest">İncele <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Proje 2 -->
+                <div class="group bg-white dark:bg-slate-800 rounded-4xl overflow-hidden border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl">
+                    <div class="h-64 bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
+                         <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-6xl text-white font-bold italic">$$\pi$$</div>
+                        <img src="https://images.unsplash.com/photo-1509228468518-180dd482195b?auto=format&fit=crop&q=80&w=800" alt="Proje" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="text-primary font-bold text-xs uppercase tracking-widest">iPad & Pedagoji</div>
+                        <h3 class="text-2xl font-bold">Dijital Sınıf Rehberi</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Apple Teacher yetkinliklerimle hazırladığım, sınıf içi iPad kullanımını maksimize eden müfredat tasarımı.</p>
+                        <button class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-xs tracking-widest">İncele <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Proje 3 -->
+                <div class="group bg-white dark:bg-slate-800 rounded-4xl overflow-hidden border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl">
+                    <div class="h-64 bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
+                         <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-6xl text-white font-bold italic">$$\Sigma$$</div>
+                        <img src="https://images.unsplash.com/photo-1596495573826-3946d0221440?auto=format&fit=crop&q=80&w=800" alt="Proje" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="text-primary font-bold text-xs uppercase tracking-widest">Makale & Analiz</div>
+                        <h3 class="text-2xl font-bold">Algoritma Mantığı</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Matematiksel düşünmenin kodlama dünyasındaki yeri üzerine yazdığım detaylı analiz ve çalışma dosyası.</p>
+                        <button class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-xs tracking-widest">İncele <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
+    <!-- Sabit Footer -->
     <footer class="pt-24 pb-12 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
-                <!-- Marka Bölümü -->
-                <div class="md:col-span-5 space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="md:col-span-2 space-y-6">
                     <div class="flex items-center gap-3">
                         <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/logos.png" alt="Logo" class="h-10 w-auto">
                         <span class="text-2xl font-black tracking-tighter">ALİ ŞENGÜL</span>
                     </div>
-                    <p class="text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed">
-                        Matematik eğitimini dijital çağın gerekliliklerine göre yeniden tasarlayan bir öğretmen adayı. Gelecek, doğru sorularda gizlidir.
+                    <p class="text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed font-medium">
+                        Matematiği teknoloji ile evrenin diline dönüştüren bir öğretmen adayı. Gelecek, doğru soruları soranların olacak.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white transition-all"><i class="fa-brands fa-instagram text-xl"></i></a>
-                        <a href="#" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white transition-all"><i class="fa-brands fa-x-twitter text-xl"></i></a>
-                        <a href="#" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white transition-all"><i class="fa-brands fa-github text-xl"></i></a>
+                        <a href="https://www.linkedin.com/in/alisengulcom" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-primary hover:text-white transition-all"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
+                        <a href="#" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-primary hover:text-white transition-all"><i class="fa-brands fa-instagram text-xl"></i></a>
                     </div>
                 </div>
 
-                <!-- Hızlı Bağlantılar -->
-                <div class="md:col-span-3">
-                    <h4 class="font-bold text-slate-900 dark:text-white mb-8 uppercase tracking-widest text-sm">Site Navigasyonu</h4>
-                    <ul class="space-y-4 font-medium text-slate-500 dark:text-slate-400">
-                        <li><a href="#about" class="hover:text-primary transition-colors">Hikayem</a></li>
-                        <li><a href="#philosophy" class="hover:text-primary transition-colors">Eğitim Vizyonu</a></li>
-                        <li><a href="#contact" class="hover:text-primary transition-colors">İletişim Kanalı</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Projeler (Yakında)</a></li>
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-8 uppercase tracking-[0.2em] text-xs">Site Haritası</h4>
+                    <ul class="space-y-4 font-bold text-slate-500 dark:text-slate-400 text-sm">
+                        <li><button onclick="showPage('home')" class="hover:text-primary transition-colors">Ana Sayfa</button></li>
+                        <li><button onclick="showPage('projects')" class="hover:text-primary transition-colors">Projelerim</button></li>
+                        <li><a href="#about" class="hover:text-primary transition-colors">Hakkımda</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition-colors">İletişim</a></li>
                     </ul>
                 </div>
 
-                <!-- Apple Teacher Onayı -->
-                <div class="md:col-span-4 space-y-8">
-                    <h4 class="font-bold text-slate-900 dark:text-white mb-8 uppercase tracking-widest text-sm">Resmi Tanınma</h4>
-                    <div class="space-y-6">
-                        <!-- Apple Teacher İmzası -->
-                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border border-slate-100 dark:border-slate-800 inline-block">
-                            <img src="https://r.resimlink.com/tXMPVx.png" alt="Apple Teacher" class="h-[45px] dark:hidden block">
-                            <img src="https://r.resimlink.com/xSsj0KcQH87.png" alt="Apple Teacher" class="h-[45px] hidden dark:block">
-                        </div>
-                        <p class="text-[11px] text-slate-400 leading-tight italic max-w-xs">
-                            Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. Apple Teacher is a recognition of educator skills.
+                <div class="space-y-8">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-8 uppercase tracking-[0.2em] text-xs">Apple Teacher</h4>
+                    <div class="space-y-4">
+                        <img src="https://r.resimlink.com/tXMPVx.png" alt="Apple Teacher" class="h-[40px] dark:hidden block">
+                        <img src="https://r.resimlink.com/xSsj0KcQH87.png" alt="Apple Teacher" class="h-[40px] hidden dark:block">
+                        <p class="text-[10px] text-slate-400 leading-tight italic">
+                            Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Alt Copyright -->
             <div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm font-medium text-slate-400">© 2026 Ali ŞENGÜL. Tüm Hakları Saklıdır.</p>
-                <div class="flex gap-8 text-xs font-bold text-slate-300 dark:text-slate-600 uppercase tracking-widest">
-                    <span>Modern Portfolio V2.0</span>
+                <p class="text-sm font-bold text-slate-400">© 2026 Ali ŞENGÜL. Matematik Evrenin Dilidir.</p>
+                <div class="flex gap-4 text-[10px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-widest">
+                    <span>Portfolio V3.0</span>
+                    <span>•</span>
+                    <span>Tire, İzmir</span>
                 </div>
             </div>
         </div>
@@ -371,37 +315,56 @@
         const SUPABASE_KEY = 'sb_publishable_JixS3C4jQ2Znrgcr3-IZPg_1MfpvdXW'; 
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        // Tema Yönetimi
-        const themeToggle = document.getElementById('themeToggle');
-        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-        
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        // SAYFA YÖNETİMİ (SPA)
+        function showPage(pageId) {
+            const home = document.getElementById('home-page');
+            const projects = document.getElementById('projects-page');
+            const navItems = document.querySelectorAll('.nav-item');
+
+            if (pageId === 'home') {
+                home.classList.remove('hidden');
+                projects.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (pageId === 'projects') {
+                home.classList.add('hidden');
+                projects.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Aktif link stili
+            navItems.forEach(item => {
+                if (item.textContent.toLowerCase().includes(pageId === 'home' ? 'ana' : 'proje')) {
+                    item.classList.add('nav-link-active');
+                } else {
+                    item.classList.remove('nav-link-active');
+                }
+            });
         }
 
+        // Tema Yönetimi
+        const themeToggle = document.getElementById('themeToggle');
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
         themeToggle.addEventListener('click', toggleTheme);
-        mobileThemeToggle.addEventListener('click', toggleTheme);
 
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
         }
 
-        // Navbar Scroll Efekti (Kusursuz Geçiş)
+        // Navbar Scroll Efekti
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            const navContainer = document.getElementById('navContainer');
-            if (window.scrollY > 20) {
+            const container = document.getElementById('navContainer');
+            if (window.scrollY > 30) {
                 navbar.classList.add('scrolled');
-                navContainer.classList.remove('py-5');
-                navContainer.classList.add('py-3');
+                container.classList.remove('py-5');
+                container.classList.add('py-3');
             } else {
                 navbar.classList.remove('scrolled');
-                navContainer.classList.remove('py-3');
-                navContainer.classList.add('py-5');
+                container.classList.remove('py-3');
+                container.classList.add('py-5');
             }
         });
 
@@ -412,7 +375,6 @@
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin"></i> <span>Gönderiliyor...</span>';
 
@@ -431,19 +393,21 @@
 
                 if (error) throw error;
 
-                statusMsg.className = 'block text-center font-bold p-5 rounded-2xl bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-100 dark:border-green-800';
-                statusMsg.textContent = 'Mesajınız başarıyla iletildi. Ali en kısa sürede sizinle iletişime geçecek!';
+                statusMsg.className = 'block text-center font-bold p-5 rounded-2xl bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-500/20';
+                statusMsg.textContent = 'Mesajınız başarıyla iletildi! En kısa sürede dönüş yapacağım.';
                 form.reset();
-
             } catch (err) {
-                statusMsg.className = 'block text-center font-bold p-5 rounded-2xl bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-400 border border-red-100 dark:border-red-800';
+                statusMsg.className = 'block text-center font-bold p-5 rounded-2xl bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-400 border border-red-500/20';
                 statusMsg.textContent = 'Bir sorun oluştu: ' + (err.message || 'Hata.');
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Gönder</span> <i class="fa-solid fa-paper-plane"></i>';
-                setTimeout(() => statusMsg.classList.add('hidden'), 6000);
+                submitBtn.innerHTML = 'Gönder <i class="fa-solid fa-paper-plane"></i>';
+                setTimeout(() => statusMsg.classList.add('hidden'), 5000);
             }
         });
+
+        // İlk sayfa yüklemesi
+        window.onload = () => showPage('home');
     </script>
 </body>
 </html>
