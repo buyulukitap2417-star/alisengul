@@ -87,6 +87,14 @@
             opacity: 1;
             pointer-events: auto;
         }
+
+        /* Circular glow effect for the profile photo */
+        .profile-glow {
+            box-shadow: 0 0 50px 10px rgba(59, 130, 246, 0.15);
+        }
+        .dark .profile-glow {
+            box-shadow: 0 0 50px 10px rgba(59, 130, 246, 0.1);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-darkBg dark:text-slate-100 math-grid overflow-x-hidden">
@@ -138,23 +146,31 @@
         <section class="min-h-screen flex flex-col justify-center pt-24 pb-12 px-5">
             <div class="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                 <div class="space-y-6 md:space-y-10 order-2 md:order-1 text-center md:text-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-widest border border-blue-500/20">
-                        Apple Onaylı Matematik Eğitimcisi
+                    <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-widest border border-blue-500/20">
+                            Apple Teacher
+                        </div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-[10px] font-bold uppercase tracking-widest border border-green-500/20">
+                            Microsoft Elevate Educator Explorer
+                        </div>
                     </div>
                     <h1 class="text-4xl sm:text-5xl md:text-8xl font-black leading-[1.1] tracking-tighter">
                         Geleceği <br class="hidden md:block"> <span class="text-primary">Matematikleştir.</span>
                     </h1>
                     <p class="text-base md:text-xl text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium mx-auto md:mx-0">
-                        Teorik bilgiyi pratikte uygulayan, yenilikçi düşünme yeteneğiyle eğitim ortamlarına değer katan bir vizyon.
+                        Teorik bilgiyi pratikte uygulayan, Microsoft ve Apple onaylı dijital yetkinliklerle eğitim ortamlarına değer katan bir vizyon.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <button onclick="showPage('projects')" class="w-full sm:w-fit px-8 py-4 bg-primary text-white font-bold rounded-2xl shadow-lg shadow-primary/30 active:scale-95 transition-all">Projelerime Bak</button>
                         <button onclick="showPage('contact')" class="w-full sm:w-fit px-8 py-4 bg-white dark:bg-slate-800 font-bold rounded-2xl border border-slate-200 dark:border-slate-700 active:scale-95 transition-all">İletişime Geç</button>
                     </div>
                 </div>
-                <div class="order-1 md:order-2 w-full max-w-[320px] md:max-w-none mx-auto relative group">
-                    <div class="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
-                    <img src="https://r.resimlink.com/6U1g2oelRh.png" alt="Ali Şengül Profile" class="relative w-full aspect-square object-cover rounded-[2.5rem] md:rounded-5xl shadow-2xl transition-all duration-700 md:group-hover:scale-[1.02]">
+                <!-- Fotoğraf Alanı (Düzeltildi: Tam Yuvarlak ve Uyumlu Gölge) -->
+                <div class="order-1 md:order-2 w-full max-w-[240px] md:max-w-[320px] mx-auto relative group">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl opacity-50 group-hover:opacity-100 transition duration-1000 rounded-full"></div>
+                    <div class="relative p-1 rounded-full bg-gradient-to-tr from-primary/30 to-transparent">
+                        <img src="https://eygvzptaynyysagvgwyh.supabase.co/storage/v1/object/public/fotos/fotos.png" alt="Ali Şengül Profile" class="relative w-full aspect-square object-cover rounded-full shadow-xl profile-glow transition-all duration-700 md:group-hover:scale-[1.03]">
+                    </div>
                 </div>
             </div>
         </section>
@@ -163,9 +179,9 @@
         <section id="about" class="py-20 bg-white dark:bg-slate-900/50 px-5">
             <div class="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-3 gap-12 items-center">
                 <div class="md:col-span-2 space-y-6 text-center md:text-left">
-                    <h2 class="text-3xl md:text-4xl font-black tracking-tight leading-tight">Süleyman Demirel Üniversitesi Öğrencisi.</h2>
+                    <h2 class="text-3xl md:text-4xl font-black tracking-tight leading-tight">SDÜ İlköğretim Matematik Öğretmenliği Öğrencisi.</h2>
                     <p class="text-base md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                        Amacım; edindiğim teorik bilgileri dijital içerik tasarımı ve topluluk oluşturma becerilerimle birleştirerek profesyonel eğitim çözümleri sunmak.
+                        Sürekli gelişim ve etkileşimi önemseyen, yayınevleri (Mozaik, Hız, Ple-Birey) ile iş birliği yapan ve Türkiye Eğitim Gönüllüleri Vakfı'nda aktif rol alan bir eğitimci adayı.
                     </p>
                 </div>
                 <div class="grid grid-cols-2 gap-4 w-full text-center">
@@ -174,7 +190,7 @@
                         <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-tight">Instagram Kitlesi</p>
                     </div>
                     <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50">
-                        <h4 class="text-3xl font-black text-primary mb-1">10+</h4>
+                        <h4 class="text-3xl font-black text-primary mb-1">7+</h4>
                         <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-tight">Yayınevi İşbirliği</p>
                     </div>
                 </div>
@@ -186,45 +202,49 @@
     <main id="projects-page" class="hidden page-transition pt-28 px-5 pb-16">
         <div class="max-w-7xl mx-auto">
             <div class="mb-12 md:mb-20 text-center space-y-4">
-                <h1 class="text-4xl md:text-7xl font-black">Deneyim & Proje.</h1>
-                <p class="text-base md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">Ulucak Akademi'den TEGV gönüllülüğüne, eğitimdeki dijital girişimlerim.</p>
+                <h1 class="text-4xl md:text-7xl font-black">Deneyim & Girişim.</h1>
+                <p class="text-base md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">Akademik deneyimlerimden dijital içerik üretimime kadar tüm profesyonel geçmişim.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-                <!-- MATOTA ONLINE -->
-                <div class="group bg-white dark:bg-slate-800 rounded-4xl md:rounded-5xl overflow-hidden border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl flex flex-col">
-                    <div class="h-48 md:h-72 bg-blue-600 overflow-hidden relative flex items-center justify-center p-8 text-center">
-                        <h2 class="text-3xl md:text-4xl font-black text-white z-10">MATOTA ONLINE</h2>
-                    </div>
-                    <div class="p-8 md:p-10 space-y-4 flex-grow flex flex-col justify-between">
-                        <div class="space-y-4 text-sm md:text-base">
-                            <div class="text-primary font-bold text-[10px] uppercase tracking-widest italic">Öğrenci-Öğretmen Platformu</div>
-                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
-                                Öğrenci-öğretmen kullanımını esas alan, interaktif ders içerikleriyle donatılmış kapsamlı bir online eğitim programıdır.
-                            </p>
-                        </div>
-                        <a href="https://www.matota.online" target="_blank" class="mt-6 w-full md:w-fit px-8 py-3 bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-bold rounded-2xl flex items-center justify-center gap-3 active:scale-95 transition-transform">
-                            Siteyi Ziyaret Et <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-4xl border border-slate-100 dark:border-slate-700/50 shadow-sm">
+                    <div class="text-primary font-bold text-[10px] uppercase tracking-widest mb-4 italic">Deneyim | 2024 - 2025</div>
+                    <h3 class="text-2xl font-bold mb-2">Ulucak Akademi</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        İlköğretim 4. sınıf öğrencileriyle haftada 5 gün, yoğunlaştırılmış matematik dersleri ve akademik gelişim takibi.
+                    </p>
                 </div>
 
-                <!-- INSTAGRAM -->
-                <div class="group bg-white dark:bg-slate-800 rounded-4xl md:rounded-5xl overflow-hidden border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl flex flex-col">
-                    <div class="h-48 md:h-72 bg-gradient-to-tr from-purple-600 via-pink-600 to-yellow-500 overflow-hidden relative flex items-center justify-center p-8">
-                         <h2 class="text-3xl md:text-4xl font-black text-white z-10">@ilkogretimogretmeni</h2>
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-4xl border border-slate-100 dark:border-slate-700/50 shadow-sm">
+                    <div class="text-primary font-bold text-[10px] uppercase tracking-widest mb-4 italic">Gönüllülük | 2025 - Devam</div>
+                    <h3 class="text-2xl font-bold mb-2">TEGV Gönüllü Eğitmen</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        Türkiye Eğitim Gönüllüleri Vakfı bünyesinde çocukların matematiksel becerilerini güçlendirmeye yönelik gönüllü faaliyetler.
+                    </p>
+                </div>
+
+                <div class="group bg-blue-600 p-8 md:p-10 rounded-5xl text-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-black mb-4 italic">MATOTA Online</h3>
+                        <p class="opacity-80 leading-relaxed font-medium mb-6">
+                            Öğrenci-öğretmen kullanımını esas alan, interaktif ders içerikleriyle donatılmış kapsamlı bir online eğitim platformu.
+                        </p>
                     </div>
-                    <div class="p-8 md:p-10 space-y-4 flex-grow flex flex-col justify-between">
-                        <div class="space-y-4 text-sm md:text-base">
-                            <div class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">İçerik Üreticiliği</div>
-                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
-                                Mozaik, Hız, Ple-Birey gibi yayınevleriyle işbirliği yaparak üretilen taktikler ve motivasyon videoları.
-                            </p>
-                        </div>
-                        <a href="https://www.instagram.com/ilkogretimogretmeni" target="_blank" class="mt-6 w-full md:w-fit px-8 py-3 bg-pink-600 text-white font-bold rounded-2xl flex items-center justify-center gap-3 active:scale-95 transition-transform">
-                            Profiline Git <i class="fa-brands fa-instagram"></i>
-                        </a>
+                    <a href="https://www.matota.online" target="_blank" class="w-fit px-8 py-3 bg-white text-blue-600 font-bold rounded-2xl flex items-center gap-3 hover:scale-105 transition-transform">
+                        İncele <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <div class="group bg-gradient-to-tr from-purple-600 to-pink-600 p-8 md:p-10 rounded-5xl text-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-black mb-4 italic">@ilkogretimogretmeni</h3>
+                        <p class="opacity-80 leading-relaxed font-medium mb-6">
+                            Mozaik, Hız, İnformal gibi yayınevleriyle iş birliği yaparak matematik taktikleri ve motivasyon içerikleri ürettiğim dijital kanalım.
+                        </p>
                     </div>
+                    <a href="https://www.instagram.com/ilkogretimogretmeni" target="_blank" class="w-fit px-8 py-3 bg-white text-pink-600 font-bold rounded-2xl flex items-center gap-3 hover:scale-105 transition-transform">
+                        Takip Et <i class="fa-brands fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -235,69 +255,64 @@
         <div class="max-w-7xl mx-auto">
             <div class="mb-12 md:mb-20 text-center space-y-4">
                 <h1 class="text-4xl md:text-7xl font-black">Sertifikalarım.</h1>
-                <p class="text-base md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">Sürekli gelişim ve uzmanlık yolculuğumdaki resmi duraklarım.</p>
+                <p class="text-base md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">Küresel teknoloji devlerinden yerel vakıflara kadar eğitim yetkinliklerim.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Sertifika Kartları -->
+                <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-3xl border border-blue-200 dark:border-blue-800 hover:scale-[1.02] transition-all">
+                    <i class="fa-brands fa-microsoft text-blue-600 text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Microsoft Elevate of Educator</h3>
+                    <p class="text-[10px] text-blue-600 font-black uppercase tracking-widest mb-1">Microsoft Global</p>
+                    <p class="text-[10px] text-slate-400 font-medium leading-tight italic">Dünya teknoloji devi tarafından seçili öğretmenlere verilen eğitim sertifikası.</p>
+                </div>
+
+                <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 hover:scale-[1.02] transition-all">
+                    <i class="fa-brands fa-apple text-slate-900 dark:text-white text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Apple Teacher Eğitimi</h3>
+                    <p class="text-[10px] text-slate-900 dark:text-white font-black uppercase tracking-widest mb-1">Apple Eğitim</p>
+                    <p class="text-[10px] text-slate-400 font-medium leading-tight italic">Eğitim ve sınavlar sonucu Türkiye'de sayılı öğretmende bulunan unvan.</p>
+                </div>
+
                 <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
-                    <i class="fa-solid fa-certificate text-primary text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">İlkokul Çocuklarının Matematik Becerilerini Geliştirme</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Hayat Boyu Öğrenme | Kasım 2024</p>
+                    <i class="fa-solid fa-calculator text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">İlkokul Matematik Becerileri</h3>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Hayat Boyu Öğrenme | 2024</p>
                 </div>
 
                 <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
                     <i class="fa-solid fa-laptop-code text-primary text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Ders Hazırlama Ve İşlemede Teknoloji Kullanımı</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Hayat Boyu Öğrenme | Kasım 2024</p>
+                    <h3 class="font-bold text-lg mb-2">Ders Hazırlamada Teknoloji</h3>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Hayat Boyu Öğrenme | 2024</p>
                 </div>
 
                 <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
-                    <i class="fa-solid fa-users-viewfinder text-primary text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Yaratıcı Yenilikçi Öğretmenler Semineri</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Ege Çağdaş Eğitim Vakfı (EÇEV)</p>
+                    <i class="fa-solid fa-users text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Yaratıcı Yenilikçi Öğretmenler</h3>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">EÇEV Semineri</p>
                 </div>
 
                 <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
                     <i class="fa-solid fa-palette text-primary text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Canva Dijital Öğretmenler Zirvesi</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Canva Sertifikası</p>
+                    <h3 class="font-bold text-lg mb-2">Canva Dijital Öğretmenler</h3>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Canva Zirvesi</p>
                 </div>
 
                 <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
-                    <i class="fa-solid fa-heart-circle-check text-primary text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">TEGV Temel Gönüllü Eğitimi</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Türkiye Eğitim Gönüllüleri Vakfı</p>
+                    <i class="fa-solid fa-heart-pulse text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">TEGV Gönüllü Eğitimi</h3>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">TEGV</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
+                    <i class="fa-solid fa-microchip text-primary text-2xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Yapay Zeka Semineri</h3>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Teknoloji Semineri</p>
                 </div>
 
                 <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
                     <i class="fa-solid fa-leaf text-primary text-2xl mb-4"></i>
                     <h3 class="font-bold text-lg mb-2">Çevre Eğiticisinin Eğitimi</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Ege Üniversitesi SEM</p>
-                </div>
-
-                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
-                    <i class="fa-solid fa-child-reaching text-primary text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Çocukla İletişim Sertifikası</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Hayat Boyu Öğrenme | Kasım 2024</p>
-                </div>
-
-                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
-                    <i class="fa-solid fa-chart-line text-primary text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Veri Analizi Ve Görselleştirme Eğitimi</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Uzmanlık Sertifikası</p>
-                </div>
-
-                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
-                    <i class="fa-solid fa-rocket text-primary text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Genç Girişimciler Fikir Maratonu</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Habitat Derneği | Temmuz 2023</p>
-                </div>
-
-                <div class="bg-white dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-700/50 hover:border-primary transition-all">
-                    <i class="fa-solid fa-microchip text-primary text-2xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Dünden Bugüne Yapay Zeka Semineri</h3>
-                    <p class="text-xs text-slate-400 uppercase font-bold tracking-widest">Seminer Sertifikası</p>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Ege Üniversitesi SEM</p>
                 </div>
             </div>
         </div>
@@ -346,7 +361,6 @@
         </div>
     </main>
 
-    <!-- Sabit Footer -->
     <footer class="pt-16 pb-10 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 mt-12 px-5">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:grid md:grid-cols-4 gap-12 mb-16">
@@ -356,7 +370,7 @@
                         <span class="text-xl font-black tracking-tighter uppercase">ALİ ŞENGÜL</span>
                     </div>
                     <p class="text-sm text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed font-medium mx-auto md:mx-0">
-                        Matematiği teknoloji ile evrenin diline dönüştüren bir öğretmen adayı. Sürekli gelişim ve dijital dönüşüm odağım.
+                        Apple ve Microsoft onaylı bir eğitimci adayı. Matematik eğitimini dijital dünya ile buluşturuyorum.
                     </p>
                     <div class="flex gap-4 justify-center md:justify-start">
                         <a href="https://www.linkedin.com/in/alisengulcom" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-primary hover:text-white transition-all"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
@@ -374,12 +388,12 @@
                 </div>
 
                 <div class="space-y-6 text-center md:text-left flex flex-col items-center md:items-start">
-                    <h4 class="font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-[0.2em] text-[10px]">Apple Teacher</h4>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-[0.2em] text-[10px]">Apple & Microsoft</h4>
                     <div class="space-y-4">
                         <img src="https://r.resimlink.com/tXMPVx.png" alt="Apple Teacher" class="h-[35px] dark:hidden block">
                         <img src="https://r.resimlink.com/xSsj0KcQH87.png" alt="Apple Teacher" class="h-[35px] hidden dark:block">
                         <p class="text-[9px] text-slate-400 leading-tight italic max-w-[200px]">
-                            Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries.
+                            Apple and Microsoft logos are trademarks of their respective owners. Educator recognized by both platforms.
                         </p>
                     </div>
                 </div>
@@ -388,7 +402,7 @@
             <div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
                 <p class="text-[11px] font-bold text-slate-400">© 2026 Ali ŞENGÜL. Tüm Hakları Saklıdır.</p>
                 <div class="flex gap-4 text-[9px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-widest">
-                    <span>Portfolio V5.0</span>
+                    <span>V5.2 | Microsoft Elevate</span>
                     <span>•</span>
                     <span>Isparta Merkez</span>
                 </div>
